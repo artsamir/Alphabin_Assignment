@@ -11,6 +11,8 @@
 - **pageObjects:** Contains the Page Object Model (POM) classes for Home, Search Result, and Brand Filter pages.
 - **stepDefinition:** Contains the step definitions for the Cucumber scenarios.
 - **features:** Contains the feature files defining the scenarios.
+  ![image](https://github.com/user-attachments/assets/13af9473-a058-4bf7-a117-531a59f6d0d9)
+
 
 ## Prerequisites
 - Java JDK (1.8 or higher)
@@ -34,10 +36,17 @@
 ## Feature Files
 - **amazonSearch.feature:** Contains the scenarios for testing search and filter functionality on Amazon.
 
+  ![image](https://github.com/user-attachments/assets/0b8ddcbf-8cf1-44e6-9d0d-5b9be234be1d)
+
+
 # How to Run
 1. Ensure Chromebrowser installed and ChromeDriver is in your path
 2. Run the test using Maven: mvn test
    **This will execute all the 4 Scenarios**
+   ![image](https://github.com/user-attachments/assets/3fcab045-5156-42d6-96d2-dd299e0db2d9)
+   ![image](https://github.com/user-attachments/assets/21ae76dc-cfed-4d9d-91f1-466b7ccbeb34)
+   ![image](https://github.com/user-attachments/assets/4f4b2752-595d-40fc-933a-fb970c84f2fd)
+
 
 ### Note: Sorry.. for Not completed the Assignment properly. More time spent in this project filtering part. 
 - Parallel testing functionality
