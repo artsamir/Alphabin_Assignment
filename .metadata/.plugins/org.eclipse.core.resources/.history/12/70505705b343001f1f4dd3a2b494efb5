@@ -1,0 +1,12 @@
+
+
+Feature: Amazon Search and Filtering
+
+ 
+  Scenario: Search for product and filter by brand
+    Given I am on the Amazon homepage    
+    When I search for Wireless Headphones    
+    Then I should see results containing Wireless Headphones
+    When I filter by brand Sony
+    Then I should see only Sony wireless headphones displyed
+

@@ -1,0 +1,71 @@
+package pageObjects;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.PageFactory;
+
+public class BrandFilterPage {
+	
+	WebDriver driver;
+
+	// Constructor
+	public BrandFilterPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	// Define Objects -------------------------
+	/*
+	// Locating element of Brand Sony from Brands Section
+	@FindBy(xpath = "(//div[@id=\"brandsRefinements\"]/ul/span/span/li/span/a/span)[4]")
+	private WebElement brandSony;
+	*/
+	// Locating element of Brands 
+	@FindBy(xpath = "//div[@id=\"brandsRefinements\"]/ul/span/span/li/span/a/span")
+	private List<WebElement> brands;
+	
+	// Locating element of more Brands 
+	@FindBy(xpath = "//ul[@class=\"a-unordered-list a-nostyle a-vertical a-spacing-none\"]/span/li/span/a/span")
+	private List<WebElement> morebrands;
+	
+	@FindBy(xpath = "(//span[@class=\"a-expander-prompt\"])[1]")
+	private WebElement seeMore;
+	
+
+	public List<WebElement> getSonyBrand() {
+		return brands;
+	}
+	
+	public void selectBrand() {
+		
+		try {
+			for(WebElement brand1 : brands) {
+				System.out.println(brand1.getText());
+				if(brand1.getText().contains("120")) {
+					brand1.click();
+					
+				}			
+			}			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Not able to perform");
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,250");
+			seeMore.click();
+			for(WebElement brand1a : morebrands) {
+				System.out.println(brand1a.getText());
+			}
+		}		
+		
+		
+	}
+	
+	
+	
+}

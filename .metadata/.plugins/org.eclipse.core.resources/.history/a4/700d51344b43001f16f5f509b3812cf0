@@ -1,0 +1,48 @@
+ package pageObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class HomePage {
+	
+	WebDriver driver;
+	
+	// Construct 
+	public HomePage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+
+	// defining page objects
+	
+	@FindBy(id = "twotabsearchtextbox") 
+	private WebElement searchtxtbox;
+	
+	@FindBy(id = "nav-search-submit-button") 
+	private WebElement searchBtn;
+	
+	@FindBy(id = "searchDropdownBox") 
+	private WebElement searchCategoryDropdown;
+	
+	
+	// Encapsulation
+	public void navigateHomePage() {
+		
+		driver.get("https://www.amazon.in/");
+	}
+	
+	public void enterSearchBox(String productName) {
+		searchtxtbox.sendKeys(productName);
+	}
+	
+	public void clickSearchBtn() {
+		searchBtn.click();;
+	}
+	
+	public void selectCategory(String category) {
+		Select dropdown
+	}
+	
+}

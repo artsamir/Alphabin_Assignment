@@ -1,0 +1,38 @@
+package pageObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class SearchResultPage {	
+	
+	WebDriver driver;
+	
+	// Constructor
+	public SearchResultPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	// Define PageObjects
+	
+	// locate element search result numbers
+	@FindBy(xpath = "div[@class=\"a-section a-spacing-small a-spacing-top-small\"]/span[1]") 
+	private WebElement searchResultNumber;
+	
+	// locate element search result name
+	@FindBy(xpath = "//div[@class=\"a-section a-spacing-small a-spacing-top-small\"]/span[3]") 
+	private WebElement searchResultName;
+
+	public WebElement getSearchResultNumber() {
+		return searchResultNumber;
+	}
+
+	public WebElement getSearchResultName() {
+		return searchResultName;
+	}
+	
+	
+
+}

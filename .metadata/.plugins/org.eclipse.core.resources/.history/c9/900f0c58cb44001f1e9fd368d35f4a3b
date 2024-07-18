@@ -1,0 +1,126 @@
+package pageObjects;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.PageFactory;
+
+public class BrandFilterPage {
+	
+	
+	WebDriver driver;
+
+	// Constructor
+	public BrandFilterPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	// Define Objects -------------------------
+	
+	
+	// Locating element of Brands 
+	@FindBy(xpath = "//div[@id=\"brandsRefinements\"]/ul/span/span/li/span/a/span")
+	private List<WebElement> brands;
+	
+	// Locating element of more Brands 
+	@FindBy(xpath = "//ul[@class=\"a-unordered-list a-nostyle a-vertical a-spacing-none\"]/span/li/span/a/span")
+	private List<WebElement> morebrands;
+	
+	@FindBy(xpath = "(//span[@class=\"a-expander-prompt\"])[1]")
+	private WebElement seeMore;
+	
+
+	public List<WebElement> getSonyBrand() {
+		return brands;
+	}
+	
+	public void selectBrand() throws InterruptedException {		
+		
+		boolean clicked = false;
+		try {
+			for(WebElement brand1 : brands) {
+				
+				if(brand1.getText().contains("Sony")) {
+					brand1.click();	
+					clicked = true;
+					break;					
+				}			
+			}			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Brand not found first attampt");
+			
+		}			
+		
+		if(!clicked) {
+			seeMore.click();
+			Thread.sleep(2000);
+			// Scroll the page 
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			js.executeScript("window.scrollBy(0,250)");
+			
+			for(WebElement brand1a : morebrands) {
+//				System.out.println(brand1a.getText());
+				if(brand1a.getText().contains("Sony")) {
+					brand1a.click();
+				}
+			}
+		}
+	}
+	
+	SearchResultPage SRP = new SearchResultPage(driver);
+	private WebElement laptopName2;
+		
+	public void selectLaptopBrand(List<String> myBrandLists) throws InterruptedException {	
+		
+
+		for(String myBrandList : myBrandLists) {
+			
+			boolean clicked = false;
+			try {
+				for(WebElement brand1 : brands) {
+
+					if(brand1.getText().contains(myBrandList)) {
+						brand1.click();	
+						WebElement laptopName2 = brand1;
+						clicked = true;
+						break;					
+					}			
+				}			
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println("Brand not found first attampt");
+
+			}			
+
+			if(!clicked) {
+				seeMore.click();
+				Thread.sleep(2000);
+				// Scroll the page 
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("window.scrollBy(0,250)");
+
+				for(WebElement brand1a : morebrands) {
+//					System.out.println(brand1a.getText());
+					if(brand1a.getText().contains(myBrandList)) {
+						brand1a.click();
+					}
+				}
+			}
+			
+		}
+	}	
+	
+	public WebElement getSelectLaptopBrand() {
+		
+		return laptopName2;
+	}
+	
+	
+}

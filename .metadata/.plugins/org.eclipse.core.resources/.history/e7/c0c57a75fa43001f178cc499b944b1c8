@@ -1,0 +1,21 @@
+package pageObjects;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
+
+public class SearchResultPage {
+	
+	//div[@class="a-section a-spacing-small a-spacing-top-small"]/span[1]
+	WebDriver driver;
+	
+	// Constructor
+	public SearchResultPage(WebDriver driver) {
+		this.driver = driver;
+		PageFactory.initElements(driver, this);
+	}
+	
+	// Define PageObjects
+	
+	
+
+}

@@ -1,0 +1,82 @@
+#Author: your.email@your.domain.com
+#Keywords Summary :
+#Feature: List of scenarios.
+#Scenario: Business rule through list of steps with arguments.
+#Given: Some precondition step
+#When: Some key actions
+#Then: To observe outcomes or validation
+#And,But: To enumerate more Given,When,Then steps
+#Scenario Outline: List of steps for data-driven as an Examples and <placeholder>
+#Examples: Container for s table
+#Background: List of steps run before each of the scenarios
+#""" (Doc Strings)
+#| (Data Tables)
+#@ (Tags/Labels):To group Scenarios
+#<> (placeholder)
+#""
+## (Comments)
+#Sample Feature Definition Template
+@tag
+Feature: Title of your feature
+  I want to use this template for my feature file
+
+  @tag1
+  Scenario: Title of your scenario
+    Given I want to write a step with precondition
+    And some other precondition
+    When I complete action
+    And some other action
+    And yet another action
+    Then I validate the outcomes
+    And check more outcomes
+
+  @tag2
+  Scenario Outline: Title of your scenario outline
+    Given I want to write a step with <name>
+    When I check for the <value> in step
+    Then I verify the <status> in step
+
+    Examples: 
+      | name  | value | status  |
+      | name1 |     5 | success |
+      | name2 |     7 | Fail    |
+      
+   Feature: Amazon Search and Filtering
+Background: Given I am on the Amazon homepage 
+
+ 
+  Scenario: Search for product and filter by brand
+    Given I am on the Amazon homepage    
+    When I search for "Wireless Headphones"    
+    Then I should see results containing "Wireless Headphones"
+    When I filter by brand "Sony"
+    Then I should see only Sony wireless headphones displyed
+    
+   
+  Scenario: Search with irrelevant term
+  	Given I am on the Amazon homepage
+  	When I search for Random Irrelevant Keywords
+  	Then I should see less than 10 search results
+  	
+  	
+  Scenario: Iterate through a list of brands and filter
+  	Given I am on the Amazon homepage
+  	When I search for "Laptops"
+  	Then I should see search results containing "Laptops"
+  	When I create a list of brands: ["Apple", "Dell", "HP"]
+  	And I filter the search results by iterating through brands in the list
+  	Then I should see only laptops from the specified brands displayed for each iteration
+  	
+  	
+  Scenario: Select random category from dropdown
+  	Given I am on the Amazon homepage
+  	When I get all available categories from the dropdown menu and store them in an array
+  	Then I should be able to randomly select a category from the array and apply the filter
+  	Then I should see search results specific to the chosen category
+  	
+  	
+  Scenario: Verify recently viewed items section
+  	Given I am on the Amazon homepage
+  	When I view a few different product pages
+  	Then I should see a "Recently Viewed" section on the homepage
+  	And the displayed items should be a subset of the recently viewed products (assuming a collection is used)

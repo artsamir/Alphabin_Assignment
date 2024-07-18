@@ -1,0 +1,44 @@
+
+
+Feature: Amazon Search and Filtering
+Background: Given I am on the Amazon homepage 
+
+ 
+  Scenario: Search for product and filter by brand
+    Given I am on the Amazon homepage    
+    When I search for "Wireless Headphones"    
+    Then I should see results containing "Wireless Headphones"
+    When I filter by brand "Sony"
+    Then I should see only Sony wireless headphones displyed
+    
+   
+  Scenario: Search with irrelevant term
+  	Given I am on the Amazon homepage
+  	When I search for "Random Irrelevant Keywords"
+  	Then I should see less than 10 search results
+  	
+  	
+  Scenario: Iterate through a list of brands and filter
+  	Given I am on the Amazon homepage
+  	When I search for "Laptops"
+  	Then I should see search results containing "Laptops"
+  	When I create a list of brands: ["Apple", "Dell", "HP"]
+  	And I filter the search results by iterating through brands in the list
+  	Then I should see only laptops from the specified brands displayed for each iteration
+  	
+  	
+  Scenario: Select random category from dropdown
+  	Given I am on the Amazon homepage
+  	When I get all available categories from the dropdown menu and store them in an array
+  	Then I should be able to randomly select a category from the array and apply the filter
+  	Then I should see search results specific to the chosen category
+  	
+  	
+  Scenario: Verify recently viewed items section
+  	Given I am on the Amazon homepage
+  	When I view a few different product pages
+  	Then I should see a "Recently Viewed" section on the homepage
+  	And the displayed items should be a subset of the recently viewed products (assuming a collection is used)
+  	
+  
+

@@ -1,0 +1,221 @@
+package stepDefinition;
+
+import static org.testng.Assert.assertTrue;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import io.github.bonigarcia.wdm.WebDriverManager;
+import pageObjects.BrandFilterPage;
+import pageObjects.HomePage;
+import pageObjects.SearchResultPage;
+
+public class AmazonSteps {
+	
+	WebDriver driver = new ChromeDriver();
+	HomePage home = new HomePage(driver);
+	SearchResultPage SRP = new SearchResultPage(driver);
+	BrandFilterPage filterpage = new BrandFilterPage(driver);
+	public List<String> myBrandList;
+	
+	
+	@Given("I am on the Amazon homepage")
+	public void i_am_on_the_amazon_homepage() {
+	    
+		// It's Navigating Amazon Home Page
+		home.navigateHomePage();
+		
+	}
+
+	@When("I search for {string}")
+	public void i_search_for(String string) {
+	    
+		// Entering product name in search text field
+		home.enterSearchBox(string);
+		
+		// Clicked on Search Button or icon
+		home.clickSearchBtn();
+		
+	}
+
+	@Then("I should see results containing {string}")
+	public void i_should_see_results_containing(String string) { 		
+		
+		
+		// fetching the text from search result
+		String str1 = SRP.getSearchResultName().getText();
+		String actualresult1 = str1.replaceAll("^\"|\"$", "");
+		// Printing Search Result Text
+		System.out.println("First Result Containing : " + actualresult1);
+		
+		// Right side "string" variable fetch data from scenario and stored it in expected result
+		String expectedresult1 = string;
+		
+		// Asserting the Result
+		Assert.assertEquals(actualresult1, expectedresult1);
+		
+	}
+
+	@When("I filter by brand {string}")
+	public void i_filter_by_brand(String string) throws InterruptedException {
+		
+	    // Scroll the page 
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,350)");
+		Thread.sleep(2000);
+		
+		// select Sony Brand
+		filterpage.selectBrand();
+		
+	}
+
+	@Then("I should see only Sony wireless headphones displyed")
+	public void i_should_see_only_sony_wireless_headphones_displyed() {
+	    
+		String productName = SRP.printProductsNames();
+		// Asserting search page product description contain Sony
+		assertTrue(productName.contains("Sony"), "The Search result product description does not contain 'Sony'");
+		
+		// print here One product name
+		System.out.println("Filter result displyed: " + productName);
+		
+	}
+	
+	// ----------------------------------- Scenario 2 Start here -------------------------------------
+	
+	@When("I search for Random Irrelevant Keywords")
+	public void i_search_for_random_irrelevant_keywords() {
+	    
+		// Entering Irrelevant Keywords 
+		home.enterSearchBox("Random Irrelevant Keywords");
+		
+		// Clicked search button
+		home.clickSearchBtn();
+	}
+	
+	@Then("I should see less than {int} search results") //int1
+	public void i_should_see_less_than_search_results(Integer num) {
+	    
+		int actualProductNo = SRP.noOfProduct();
+		int expectedProductNo = num;
+		// Asserting here display page containing less than 10 product
+		Assert.assertTrue(actualProductNo < expectedProductNo, "Actual Result should be less than " + expectedProductNo);
+		
+		// print here the No of result
+		System.out.println("The Result Page contain: " + actualProductNo);
+	}
+	
+	// ----------------------------------- Scenario 3 Start here -------------------------------------
+	
+	@Then("I should see search results containing {string}")
+	public void i_should_see_search_results_containing(String string) {
+	    
+		String laptopName = SRP.laptopResult();
+		
+		// Asserting search page product description contain Sony
+		assertTrue(laptopName.contains("Laptop"), "The Search result product description does not contain 'Laptop'");
+
+		// print here One product name
+		System.out.println("Filter result displyed: " + laptopName);
+		
+	}
+
+	@When("I create a list of brands: [{string}, {string}, {string}]")
+	public void i_create_a_list_of_brands(String apple, String dell, String hp) throws InterruptedException {
+	    
+		myBrandList = Arrays.asList(apple, dell, hp);
+		
+	}
+
+	@When("I filter the search results by iterating through brands in the list")
+	public void i_filter_the_search_results_by_iterating_through_brands_in_the_list() throws InterruptedException {
+	    
+		// scroll the page
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0, 300)");
+		
+		// Selecting each iteration brand
+		filterpage.selectLaptopBrand(myBrandList);
+		
+	}
+
+	@Then("I should see only laptops from the specified brands displayed for each iteration")
+	public void i_should_see_only_laptops_from_the_specified_brands_displayed_for_each_iteration() throws InterruptedException {
+	    
+
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,250)");
+		Thread.sleep(2000);
+		// ------------------- Results all iteration laptop displayed or not ---------------------------------------
+		
+		// calling the iterateResult1() from 'SearchResultPage' class and stored in a variable name laptopName1
+		String laptopName1 = SRP.iterateResult1();
+		
+		
+		// Asserting search page product description contain Apple
+		assertTrue(laptopName1.contains("HP") || laptopName1.contains("Dell") || laptopName1.contains("Apple"), "The Search result product description does not contain 'HP or Dell or Apple'");
+		
+		// print here One product name
+		System.out.println("Filter result displyed: " + laptopName1);
+		
+		
+	}
+
+	// ----------------------------------- Scenario 4 Start here -------------------------------------
+	
+	@When("I get all available categories from the dropdown menu and store them in an array")
+	public void i_get_all_available_categories_from_the_dropdown_menu_and_store_them_in_an_array() {
+	    
+		home.selectCategory("Books");
+		
+	}
+
+	@Then("I should be able to randomly select a category from the array and apply the filter")
+	public void i_should_be_able_to_randomly_select_a_category_from_the_array_and_apply_the_filter() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("I should see search results specific to the chosen category")
+	public void i_should_see_search_results_specific_to_the_chosen_category() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@When("I view a few different product pages")
+	public void i_view_a_few_different_product_pages() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("I should see a {string} section on the homepage")
+	public void i_should_see_a_section_on_the_homepage(String string) {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+
+	@Then("the displayed items should be a subset of the recently viewed products \\(assuming a collection is used)")
+	public void the_displayed_items_should_be_a_subset_of_the_recently_viewed_products_assuming_a_collection_is_used() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
+	}
+*/
+//	@After
+//	public void tearDown() {
+//		if(driver != null) {
+//			driver.quit();
+//		}
+//	}
+}

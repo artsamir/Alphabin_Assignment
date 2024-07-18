@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="4" passed="4" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2024-07-18T14:11:41Z" name="Default suite" finished-at="2024-07-18T14:12:38Z" duration-ms="57175">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@35432107]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test started-at="2024-07-18T14:11:41Z" name="Default test" finished-at="2024-07-18T14:12:38Z" duration-ms="57175">
+      <class name="runner.TestRunner">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:runner.TestRunner@35432107]" started-at="2024-07-18T19:41:41Z" name="setUpClass" test-instance-name="" finished-at="2024-07-18T19:41:41Z" duration-ms="407" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@260a3a5e]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@35432107]" started-at="2024-07-18T19:41:41Z" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" test-instance-name="" finished-at="2024-07-18T19:41:59Z" duration-ms="18249" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Search for product and filter by brand"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Amazon Search and Filtering"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@35432107]" started-at="2024-07-18T19:41:59Z" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" test-instance-name="" finished-at="2024-07-18T19:42:09Z" duration-ms="10157" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Search with irrelevant term"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Amazon Search and Filtering"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@35432107]" started-at="2024-07-18T19:42:09Z" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" test-instance-name="" finished-at="2024-07-18T19:42:28Z" duration-ms="18287" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Iterate through a list of brands and filter"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Amazon Search and Filtering"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper, io.cucumber.testng.FeatureWrapper)[pri:0, instance:runner.TestRunner@35432107]" started-at="2024-07-18T19:42:28Z" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" test-instance-name="" finished-at="2024-07-18T19:42:38Z" duration-ms="10045" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Select random category from dropdown"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Amazon Search and Filtering"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:runner.TestRunner@35432107]" started-at="2024-07-18T19:42:38Z" name="tearDownClass" test-instance-name="" finished-at="2024-07-18T19:42:38Z" duration-ms="3" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- runner.TestRunner -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

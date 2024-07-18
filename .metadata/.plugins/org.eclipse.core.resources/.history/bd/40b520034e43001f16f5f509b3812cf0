@@ -1,0 +1,12 @@
+package runner;
+
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
+
+@CucumberOptions(
+		features = "C:\\Users\\samir\\Downloads\\Evalution b37\\Alphabin Assignment\\AmazonCucumber\\amazonsearchfilter\\src\\test\\resources\\features\\amazonSearch.feature",
+		glue = "AmazonSteps"		
+		)
+public class TestRunner extends AbstractTestNGCucumberTests {
+
+}
