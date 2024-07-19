@@ -51,6 +51,18 @@
 - Verify The Serach Result Containning "Wireless Headphones"
 - In Filter section select "Sony" Brand
 - Verify "Sony Wireless headphones" displayed
+  <br>
+**Status :** Pass
+  
+**Test Case 2 :** Search Functionality<br>
+**Description :** To verify Search With Irrelevent Term<br>
+**Test Step :**
+    <br>
+- Open The Application in Browser
+- Search for "Random Irrelevent keywords"
+- Verify The Serach Result Should be less than 10 products
+  <br>
+**Status :** Pass
 # How to Run
 1. Ensure Chromebrowser installed and ChromeDriver is in your path
 2. Run the test using Maven: mvn test
