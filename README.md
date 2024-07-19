@@ -52,7 +52,7 @@
 - In Filter section select "Sony" Brand
 - Verify "Sony Wireless headphones" displayed
   <br>
-**Status :** Pass
+  **Status :** Pass
   
 **Test Case 2 :** Search Functionality<br>
 **Description :** To verify Search With Irrelevent Term<br>
@@ -62,7 +62,7 @@
 - Search for "Random Irrelevent keywords"
 - Verify The Serach Result Should be less than 10 products
   <br>
-**Status :** Pass
+  **Status :** Pass
 
 **Test Case 3 :** Filter Functionality<br>
 **Description :** To verify iterate through a list of brands and filter <br>
@@ -74,7 +74,20 @@
 - Create a list of brands:["Apple","Dell","HP"] and Filter search results by iterating through brands in the list
 - Verify the serach result displayed Specified brands for each iteration
   <br>
-**Status :** Pass
+  **Status :** Pass
+
+  **Test Case 4 :**  Category Dropdown Functionality<br>
+**Description :** To verify in Category Dropdown Select any option Randomly and check Search result displayed with specified category<br>
+**Test Step :**
+    <br>
+- Open The Application in Browser
+- Collect all the category from dropdown and store in Array
+- Randomly select a category from the Array
+- The search result should be displayed choosen category
+  <br>
+**Status :**
+> !Note
+> Not able to assert properly 
   
 # How to Run
 1. Ensure Chromebrowser installed and ChromeDriver is in your path
