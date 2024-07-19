@@ -63,6 +63,19 @@
 - Verify The Serach Result Should be less than 10 products
   <br>
 **Status :** Pass
+
+**Test Case 3 :** Filter Functionality<br>
+**Description :** To verify iterate through a list of brands and filter <br>
+**Test Step :**
+    <br>
+- Open The Application in Browser
+- Search for "Laptops"
+- Verify The Serach Result Should be contain laptops
+- Create a list of brands:["Apple","Dell","HP"] and Filter search results by iterating through brands in the list
+- Verify the serach result displayed Specified brands for each iteration
+  <br>
+**Status :** Pass
+  
 # How to Run
 1. Ensure Chromebrowser installed and ChromeDriver is in your path
 2. Run the test using Maven: mvn test
