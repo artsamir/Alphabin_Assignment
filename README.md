@@ -102,6 +102,6 @@
    <br>
 
 
-### Note: Sorry.. for Not completed the Assignment properly. More time spent in this project filtering part. 
+### Note:
 - Parallel testing functionality
 - Cross-browser capable <br> not done this part left.
