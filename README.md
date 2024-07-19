@@ -41,6 +41,16 @@
   ![image](https://github.com/user-attachments/assets/0b8ddcbf-8cf1-44e6-9d0d-5b9be234be1d)
 <br>
 
+# Test Case Execution result 
+**Test Case 1 :** Search and Filter Functionality<br>
+**Description :** To verify Search for Product and Filter by Brand<br>
+**Test Step :**
+    <br>
+- Open The Application in Browser
+- Search for "Wireless Headphones"
+- Verify The Serach Result Containning "Wireless Headphones"
+- In Filter section select "Sony" Brand
+- Verify "Sony Wireless headphones" displayed
 # How to Run
 1. Ensure Chromebrowser installed and ChromeDriver is in your path
 2. Run the test using Maven: mvn test
