@@ -11,10 +11,10 @@
 
 This project uses the following technologies:
 
-- ![Cucumber](https://img.shields.io/badge/Cucumber-%2304D100?logo=cucumber&logoColor=white) **Cucumber**: For writing behavior-driven tests in Gherkin.
-- ![Selenium](https://img.shields.io/badge/Selenium-%2300A3E0?logo=selenium&logoColor=white) **Selenium**: For browser automation and interaction with the Amazon website.
-- ![Java](https://img.shields.io/badge/Java-%23FF0000?logo=java&logoColor=white) **Java**: The primary programming language for the framework.
-- ![TestNG](https://img.shields.io/badge/TestNG-%23F05A28?logo=testng&logoColor=white) **TestNG**: For managing and running tests.
+- ![Cucumber](https://img.shields.io/badge/Cucumber-%2304D100?logo=cucumber&logoColor=white) : For writing behavior-driven tests in Gherkin.
+- ![Selenium](https://img.shields.io/badge/Selenium-%2300A3E0?logo=selenium&logoColor=white) : For browser automation and interaction with the Amazon website.
+- ![Java](https://img.shields.io/badge/Java-%23FF0000?logo=java&logoColor=white) : The primary programming language for the framework.
+- ![TestNG](https://img.shields.io/badge/TestNG-%23F05A28?logo=testng&logoColor=white) : For managing and running tests.
 
 
 
