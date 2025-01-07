@@ -11,10 +11,11 @@
 
 This project uses the following technologies:
 
-- **Cucumber**: For writing behavior-driven tests in Gherkin.
-- **Selenium**: For browser automation and interaction with the Amazon website.
-- **Java**: The primary programming language for the framework.
-- **TestNG**: For managing and running tests.
+- ![Cucumber](https://img.shields.io/badge/Cucumber-%23FAE03C?logo=cucumber&logoColor=white) **Cucumber**: For writing behavior-driven tests in Gherkin.
+- ![Selenium](https://img.shields.io/badge/Selenium-%23DAA520?logo=selenium&logoColor=white) **Selenium**: For browser automation and interaction with the Amazon website.
+- ![Java](https://img.shields.io/badge/Java-%23E8A300?logo=java&logoColor=white) **Java**: The primary programming language for the framework.
+- ![TestNG](https://img.shields.io/badge/TestNG-%23000000?logo=testng&logoColor=white) **TestNG**: For managing and running tests.
+
 
 ## Project Structure
 - **pageObjects:** Contains the Page Object Model (POM) classes for Home, Search Result, and Brand Filter pages.
