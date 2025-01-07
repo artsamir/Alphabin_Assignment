@@ -7,6 +7,15 @@
 - Iterate through a list of brands to filter search results
 - Select random categories from the dropdown
 
+## Tech Stack
+
+This project uses the following technologies:
+
+- **Cucumber**: For writing behavior-driven tests in Gherkin.
+- **Selenium**: For browser automation and interaction with the Amazon website.
+- **Java**: The primary programming language for the framework.
+- **TestNG**: For managing and running tests.
+
 ## Project Structure
 - **pageObjects:** Contains the Page Object Model (POM) classes for Home, Search Result, and Brand Filter pages.
 - **stepDefinition:** Contains the step definitions for the Cucumber scenarios.
