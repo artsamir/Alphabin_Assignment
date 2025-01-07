@@ -11,10 +11,10 @@
 
 This project uses the following technologies:
 
-- ![Cucumber Icon](https://raw.githubusercontent.com/cucumber/cucumber-logo/master/images/cucumber-logo.svg) **Cucumber**: For writing behavior-driven tests in Gherkin.
-- ![Selenium Icon](https://upload.wikimedia.org/wikipedia/commons/1/1f/Selenium_Logo.png) **Selenium**: For browser automation and interaction with the Amazon website.
-- ![Java Icon](https://upload.wikimedia.org/wikipedia/commons/2/2f/Java_logo_icon_2013.svg) **Java**: The primary programming language for the framework.
-- ![TestNG Icon](https://upload.wikimedia.org/wikipedia/commons/8/87/TestNG_Logo.svg) **TestNG**: For managing and running tests.
+- **Cucumber**: For writing behavior-driven tests in Gherkin.
+- **Selenium**: For browser automation and interaction with the Amazon website.
+- **Java**: The primary programming language for the framework.
+- **TestNG**: For managing and running tests.
 
 
 
